@@ -1,3 +1,3 @@
-# Automação do CISI - NodeJS
+# Automação do CISI - NodeJS (Server)
 
-Client em NodeJS desenvolvido para realizar o controle da automação da maquete, rodando no Raspberry Pi e controlando o Arduino através do I2C.
+Server com WebSocket em NodeJS desenvolvido para realizar o gerenciamento da comunicação entre o aplicativo e a maquete, rodando no servidor da AWS.
