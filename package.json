@@ -1,0 +1,18 @@
+{
+  "name": "maquete",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.16.3",
+    "i2c": "^0.2.3",
+    "serve-index": "^1.9.1",
+    "simple-node-logger": "^0.93.37",
+    "socket.io": "^2.1.1"
+  }
+}
