@@ -26,20 +26,17 @@ http.listen(porta, () => {
 let statusSensores = {
     leds: [
         {
-            id: 1,
             status: 1,
             usuarioUltimaAlteracao: 'gus.antoniassi@gmail.com',
             dataUltimaAlteracao: new Date()
         },
         {
-            id: 2,
             status: 0,
             usuarioUltimaAlteracao: 'macoto.junior@gmail.com',
             dataUltimaAlteracao: new Date()
         },
         {
-            id: 3,
-            status: 1,
+            status: 0,
             usuarioUltimaAlteracao: 'gus.antoniassi@gmail.com',
             dataUltimaAlteracao: new Date()
         },
@@ -62,14 +59,13 @@ io.on('connection', (socket) => {
     socket.emit('statusSensores', statusSensores);
 
     socket.on('message', (msg) => {
-        console.log('Mensagem recebida');
-        socket.broadcast.emit('message', msg);
+        console.log('Mensagem recebida - End. IP ' + socket.handshake.address);
+        io.emit('statusSensores', msg);
 
         // Gravar log do acesso
-        logger.info('Mensagem recebida');
+        logger.info('Mensagem recebida - IP: ' + socket.handshake.address);
         logger.info(msg);
-        // @TODO: Atualizar a variável statusSensores, vai ser essa
-        // aplicação que vai atualizar ou o Raspi vai tratar a mensagem,
-        // atuar nos componentes e retornar o status de tudo?
+
+	statusSensores = msg;
     });
 });
